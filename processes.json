@@ -1,0 +1,8 @@
+{
+  "apps": [{
+    "name" : "web",
+    "script" : "./index.js",
+    "watch": ["server", "config", "public/assets/manifest.json"],
+    "log_date_format"  : "YYYY-MM-DD HH:mm Z"
+  }]
+}
