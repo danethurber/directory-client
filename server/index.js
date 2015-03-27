@@ -25,6 +25,16 @@ server.views({
 
 server.route({
   method: 'GET',
+  path: config.assets.publicPath + '{param*}',
+  handler: {
+    directory: {
+      path: config.assets.publicDir
+    }
+  }
+});
+
+server.route({
+  method: 'GET',
   path:'/',
   handler (request, reply) {
     reply.view('index');
