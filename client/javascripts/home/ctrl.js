@@ -1,10 +1,9 @@
 'use strict';
 
-let $inject = ['$scope'];
-let Ctrl = ($scope) => {
+var Ctrl = ($scope) => {
   $scope.name = 'Guy';
 };
 
-Ctrl.$inject = $inject;
+Ctrl.$inject = ['$scope'];
 
 export default Ctrl;
