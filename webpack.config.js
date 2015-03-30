@@ -28,14 +28,27 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /[\/]angular\.js$/,
+        loader: 'exports?angular'
+      },
+      {
+        test: /[\/]angular-route\.js$/,
+        loader: 'exports?angular.module(\'ngRoute\');'
+      },
+      {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css!sass?outputStyle=expanded')
+        loader: ExtractTextPlugin.extract('style', 'css!sass?outputStyle=expanded&includePaths[]=./node_modules/foundation/scss')
       },
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style', 'css')
-      }
-    ]
+      },
+      {
+        test: /\.html$/,
+        loader: 'ng-cache?prefix=[dir]/[dir]'
+      },
+    ],
+    postLoaders: []
   },
 
   plugins: [
@@ -47,6 +60,9 @@ module.exports = {
     root: [
       path.join(__dirname, 'node_modules')
     ],
-    extensions: ['', '.js', '.scss', '.css']
+    modulesDirectories: [
+      path.join(__dirname, 'node_modules')
+    ],
+    extensions: ['', '.js', '.scss', '.css', '.html'],
   }
 };

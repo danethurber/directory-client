@@ -1,5 +1,4 @@
-@import '_variables';
+@import 'normalize';
+@import 'foundation';
 
-body {
-  background-color: $red;
-}
+@import '_variables';
