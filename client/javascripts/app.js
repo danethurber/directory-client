@@ -5,7 +5,9 @@ import router from 'angular-route';
 
 let app = angular.module('app', ['ngRoute']);
 
-app.controller('HomeCtrl', require('./home/ctrl.js'));
+app
+  .controller('HomeCtrl', require('./home/ctrl.js'))
+  .service('CompaniesService', require('./companies/service.js'));
 
 app.config(function($routeProvider){
 
