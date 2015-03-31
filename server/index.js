@@ -67,8 +67,8 @@ server.route({
 });
 
 server.route({
-  method: 'GET',
-  path:'/',
+  method: '*',
+  path:'/{p*}',
   handler (request, reply) {
     reply.view('index');
   }
