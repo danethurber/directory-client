@@ -30,7 +30,7 @@ describe('HomeCtrl', () => {
       CompaniesService.get.and.callFake(function(){
         var def = $q.defer();
 
-        def.resolve(companiesData);
+        def.resolve({collection: companiesData});
 
         return def.promise;
       });

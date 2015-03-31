@@ -4,7 +4,7 @@ var Ctrl = ($scope, CompaniesService) => {
   $scope.companies = [];
 
   CompaniesService.get().then((data) => {
-    $scope.companies = data;
+    $scope.companies = data.collection;
   });
 };
 
