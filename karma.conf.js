@@ -32,7 +32,7 @@ var defaults = {
     '*.html'
   ],
 
-  reporters: ['nyan', 'coverage'],
+  reporters: ['progress', 'coverage'],
 
   coverageReporter: {
     dir: path.join(config.paths.root, 'coverage'),
