@@ -16,5 +16,10 @@ module.exports = {
 
   server: {
     port: process.env.PORT || 3000
+  },
+
+  api: {
+    protocol: process.env.API_PROTOCOL || 'http',
+    domain: process.env.API_DOMAIN || 'localhost:3001'
   }
 };
