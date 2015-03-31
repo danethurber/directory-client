@@ -1,5 +1,5 @@
 <ol>
   <li ng-repeat="company in companies">
-    <p ng-bind="company.name"></p>
+    <a ng-bind="company.name" ng-href="/companies/{{company.id}}"></a>
   </li>
 </ol>

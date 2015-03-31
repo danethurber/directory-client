@@ -6,6 +6,9 @@ var Service = ($http) => {
   return {
     get () {
       return $http.get(endpoint).then((response) => {return response.data});
+    },
+    find (id) {
+      return $http.get(`${endpoint}/${id}`).then((response) => {return response.data});
     }
   };
 };

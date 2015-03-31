@@ -46,4 +46,31 @@ describe('CompaniesService', () => {
     });
 
   });
+
+  describe('#find', () => {
+    let companyId = 666;
+    let endpoint = `/api/v1/companies/${companyId}`;
+    let response = {id: companyId, name: 'some name'};
+
+    beforeEach(() => {
+      $httpBackend.when('GET', endpoint).respond(response);
+    });
+
+    it('makes a request to the companies api with the company id', () => {
+      $httpBackend.expectGET(endpoint);
+      service.find(companyId);
+
+      $httpBackend.flush();
+    });
+
+    it('responds with the proper data', () => {
+      $httpBackend.expectGET(endpoint);
+      service.find(companyId).then((data) =>{
+        expect(data).toEqual(response);
+      });
+
+      $httpBackend.flush();
+    });
+
+  });
 });
