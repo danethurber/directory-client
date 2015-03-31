@@ -1,0 +1,10 @@
+{
+  "name":"directory-client",
+  "scripts":{},
+  "env":{
+    "API_DOMAIN":{
+      "required":true
+    }
+  },
+  "addons":[]
+}
