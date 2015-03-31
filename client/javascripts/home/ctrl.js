@@ -1,9 +1,13 @@
 'use strict';
 
-var Ctrl = ($scope) => {
-  $scope.name = 'Guy';
+var Ctrl = ($scope, CompaniesService) => {
+  $scope.companies = [];
+
+  CompaniesService.get().then((data) => {
+    $scope.companies = data;
+  });
 };
 
-Ctrl.$inject = ['$scope'];
+Ctrl.$inject = ['$scope', 'CompaniesService'];
 
 export default Ctrl;

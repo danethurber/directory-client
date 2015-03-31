@@ -23,14 +23,24 @@ describe('CompaniesService', () => {
 
   describe('#get', () => {
     let endpoint = '/api/v1/companies';
+    let response = [{id: 1234}, {id: 5678}];
 
     beforeEach(() => {
-      $httpBackend.when('GET', endpoint).respond({});  
+      $httpBackend.when('GET', endpoint).respond(response);
     });
 
     it('makes a request to the companies api', () => {
       $httpBackend.expectGET(endpoint);
       service.get();
+
+      $httpBackend.flush();
+    });
+
+    it('responds with the proper data', () => {
+      $httpBackend.expectGET(endpoint);
+      service.get().then((data) =>{
+        expect(data).toEqual(response);
+      });
 
       $httpBackend.flush();
     });
