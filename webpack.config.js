@@ -7,6 +7,8 @@ var ManifestPlugin = require('webpack-manifest-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+  devtool: 'inline-source-map',
+
   entry: {
     app: [
       path.join(config.assets.entryDir, 'javascripts', 'app'),
