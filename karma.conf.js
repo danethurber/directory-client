@@ -32,7 +32,7 @@ var defaults = {
     '*.html'
   ],
 
-  reporters: ['progress'],
+  reporters: ['progress', 'coverage'],
 
   coverageReporter: {
     dir: path.join(config.paths.root, 'coverage'),
@@ -64,7 +64,7 @@ defaults.webpack.module.postLoaders = [{
 if(env === 'ci') {
   defaults.autoWatch = false;
   defaults.singleRun = true;
-  defaults.reporters.push('coverage');
+  defaults.reporters = ['spec'];
   defaults.browsers = ['PhantomJS'];
 }
 
