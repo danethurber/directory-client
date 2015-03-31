@@ -19,7 +19,7 @@ var defaults = {
 
   preprocessors: {
     'client/javascripts/app.js': ['webpack'],
-    '**/*.spec.js': ['babel']
+    '**/*.spec.js': ['babel', 'sourcemap']
   },
 
   webpack: {
