@@ -6,7 +6,9 @@ var webpack = require('webpack');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
+var env = process.env.NODE_ENV;
+
+var webpackConfig = {
   devtool: 'inline-source-map',
 
   entry: {
@@ -68,3 +70,11 @@ module.exports = {
     extensions: ['', '.js', '.scss', '.css', '.html'],
   }
 };
+
+if(env === 'production') {
+  webpackConfig.devtool = 'source-map';
+  webpackConfig.plugins.push(new webpack.optimize.DedupePlugin());
+  webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
+
+module.exports = webpackConfig;

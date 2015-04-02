@@ -3,7 +3,7 @@
 import angular from 'angular';
 import router from 'angular-route';
 
-let app = angular.module('app', ['ngRoute']);
+let app = angular.module('app', [router]);
 
 app
   .service('UsersService', require('./companies/users-service.js'))
@@ -12,7 +12,7 @@ app
   .controller('HomeCtrl', require('./home/ctrl.js'))
   .controller('ShowCtrl', require('./companies/show-ctrl.js'));
 
-app.config(function($locationProvider, $routeProvider){
+app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider){
   $locationProvider.html5Mode(true);
   $routeProvider
     .when('/', {
@@ -27,4 +27,4 @@ app.config(function($locationProvider, $routeProvider){
       redirectTo: '/'
     });
 
-});
+}]);
